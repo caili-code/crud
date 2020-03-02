@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body onload="init()">
+<form action="update" method="POST">
+<input id="SId" type="text" name="SId" readonly
+ value="">
+姓名:<input id="name" type="text" name="name" value="">
+年龄:<input id="age" type="text" name="age" value="">
+性别: <input id="sex" type="text" name="sex" value="">
+修改:	<input type="submit" value="提交">
+</form></body>
+<script type="text/javascript">
+	function init(){
+		document.getElementById('SId').value=getQueryVariable('SId');
+		document.getElementById('name').value=getQueryVariable('name');
+		document.getElementById('age').value=getQueryVariable('age');
+		document.getElementById('sex').value=getQueryVariable('sex');	
+	}
+	function getQueryVariable(variable)
+	{
+	       var query = decodeURI(window.location.search.substring(1));
+	       console.log(query);
+	       var vars = query.split("&");
+	       for (var i=0;i<vars.length;i++) {
+	    	   
+	               var pair = vars[i].split("=");
+	               if(pair[0] == variable){
+	            	   return pair[1];
+	            	   }
+	       }
+	       return(false);
+	}
+	
+
+</script>
+</html>
